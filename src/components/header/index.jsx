@@ -1,6 +1,8 @@
 import React from 'react';
+import styles from './index.module.less';
+import { ShoppingCartOutlined } from '@ant-design/icons';
 export default class Header extends React.Component {
-  topNav = [
+  leftNav = [
     {
       title: '小米商城',
       url: '',
@@ -54,22 +56,55 @@ export default class Header extends React.Component {
       url: '',
     },
   ];
+  rightNav = [
+    {
+      title: '登录',
+      path: '',
+    },
+    {
+      title: '注册',
+      path: '',
+    },
+    {
+      title: '消息通知',
+      path: '',
+    },
+    {
+      title: '购物车',
+      path: '',
+      icon: 'ShoppingCartOutlined',
+    },
+  ];
   render() {
     return (
       <div className={styles.header}>
         <div className={styles.leftNav}>
-          {this.topNav && this.topNav.map(item =>{
-            return (
-              <ul>
-                <li>
-                  <a href={item.url}>{item.title}</a>
-                </li>
-              </ul>
-            );
-          })}
-          
+          <ul>
+            {this.leftNav &&
+              this.leftNav.map((item) => {
+                return (
+                  <li>
+                    <a href={item.url}>{item.title}</a>
+                    <span className={styles.sep}>|</span>
+                  </li>
+                );
+              })}
+          </ul>
         </div>
-        <div className='rightNav'></div>
+        <div className={styles.rightNav}>
+          <ul>
+            {this.rightNav &&
+              this.rightNav.map((item) => {
+                return (
+                  <li className = {item.icon ? styles.last : ''}>
+                    {item.icon && <ShoppingCartOutlined className={styles.icon} />}
+                    <a href={item.path}>{item.title}</a>
+                    <span className={styles.sep}>|</span>
+                  </li>
+                );
+              })}
+          </ul>
+        </div>
       </div>
     );
   }
