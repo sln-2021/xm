@@ -59,8 +59,10 @@ small {
   font-size: 12px;
 }
 ul,
-ol {
+ol,
+li {
   list-style: none;
+  text-decoration: none;
 }
 a {
   text-decoration: none;
