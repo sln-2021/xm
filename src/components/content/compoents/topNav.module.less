@@ -1,0 +1,79 @@
+.main {
+  height: 100px;
+  width: 100%;
+  padding: 0 350px;
+  box-sizing: border-box;
+  .leftNav {
+    width: 15%;
+    height: 100%;
+    float: left;
+    .logo {
+      float: left;
+      width: 62px;
+      margin-top: 22px;
+      img {
+        width: 56px;
+        height: 56px;
+      }
+    }
+  }
+
+  .mainNav {
+    width: 65%;
+    height: 100%;
+    float: left;
+    li {
+      float: left;
+      line-height: 100px;
+      padding: 0 10px;
+      box-sizing: border-box;
+      text-decoration: none;
+      list-style: none;
+      a {
+        text-decoration: none;
+        span {
+          font-size: 16px;
+          color: #333;
+        }
+      }
+    }
+  }
+  .rightNav {
+    width: 20%;
+    float: left;
+    height: 100%;
+    position: relative;
+    .search {
+      height: 50px;
+      line-height: 100px;
+      .inputSearch {
+        height: 100%;
+        margin: 0 auto; /*水平居中*/
+        position: relative; /*脱离文档流*/
+        top: 50%;
+      }
+    }
+    .keyLists {
+      position: absolute;
+      left: 0;
+      top: 65px;
+      z-index: 20 !important;
+      width: 243px;
+      border: 1px solid #ff6700;
+      border-top: 0;
+      background: #fff;
+      ul {
+        margin: 0;
+        padding: 5px 10px;
+        box-sizing: border-box;
+        list-style-type: none;
+        li {
+          margin-top: 5px;
+        }
+      }
+    }
+    .hide {
+      display: none !important;
+    }
+  }
+}
