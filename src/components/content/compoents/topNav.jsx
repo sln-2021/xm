@@ -1,17 +1,16 @@
 import React from 'react';
 import styles from './topNav.module.less';
 import imgUrl from '../../../assets/img/logomi2.png';
-import { Input } from 'antd';
+import { Select } from 'antd';
 
-const { Search } = Input;
+const { Option } = Select;
 export default class TopNav extends React.Component {
   state = {
-    keyVisible: false,
-    inputValue: '',
+    hoverFlag: false,
   };
 
   navLists = [
-    { id: 1, title: '小米手机' },
+    { id: 1, title: 'Xiaomi手机' },
     { id: 2, title: 'Redmi红米' },
     { id: 3, title: '电视' },
     { id: 4, title: '笔记本' },
@@ -30,19 +29,30 @@ export default class TopNav extends React.Component {
     { id: 6, name: '黑鲨' },
     { id: 7, name: '手机' },
   ];
-  onSearch = () => {};
-  inputClick = () => {
-    const { keyVisible } = this.state;
-    this.setState({ keyVisible: !keyVisible });
+  mouseEnter = (e) => {
+    console.log(e, 'itemmmm');
+    this.setState({ hoverFlag: true });
   };
+  mouseLeave = () => {
+    this.setState({ hoverFlag: false });
+  };
+  onChange = (value) => {
+    console.log(`selected ${value}`);
+  };
+
   onBlur = () => {
-    this.setState({ keyVisible: false });
+    console.log('blur');
   };
-  setInputValue = (name) => {
-    this.setState({ inputValue: name });
+
+  onFocus = () => {
+    console.log('focus');
+  };
+
+  onSearch = (val) => {
+    console.log('search:', val);
   };
   render() {
-    const { keyVisible, inputValue } = this.state;
+    const { hoverFlag } = this.state;
     return (
       <>
         <div className={styles.main}>
@@ -53,43 +63,90 @@ export default class TopNav extends React.Component {
           </div>
           <div className={styles.mainNav}>
             <ul>
-              {this.navLists.map((item) => {
+              {this.navLists.map((item, index) => {
                 return (
-                  <li>
+                  <li key={index}>
                     <a href=''>
-                      <span> {item.title}</span>
+                      <span onMouseEnter={this.mouseEnter} onMouseLeave={this.mouseLeave}>
+                        {' '}
+                        {item.title}
+                      </span>
                     </a>
                   </li>
                 );
               })}
             </ul>
           </div>
-          <div>{keyVisible === true}</div>
           <div className={styles.rightNav}>
             <div className={styles.search}>
-              <Search
-                placeholder='小米'
-                onSearch={this.onSearch}
-                size='large'
-                onClick={this.inputClick}
-                className={styles.inputSearch}
+              <Select
+                showSearch
+                style={{ width: 200 }}
+                placeholder='手机'
+                optionFilterProp='children'
+                onChange={this.onChange}
+                onFocus={this.onFocus}
                 onBlur={this.onBlur}
-                value={inputValue}
-              />
-            </div>
-            <div className={keyVisible ? `${styles.keyLists}` : `${styles.hide}`}>
-              <ul>
+                onSearch={this.onSearch}
+                filterOption={(input, option) => option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0}>
                 {this.keyLists.map((item) => {
                   return (
-                    <li onClick={() => this.setInputValue(item.name)} key={item.id}>
+                    <Option value={item.name} key={item.id}>
                       {item.name}
-                    </li>
+                    </Option>
                   );
                 })}
-              </ul>
+              </Select>
             </div>
           </div>
         </div>
+        <div className={styles.hoverContent} style={{ display: hoverFlag ? 'block' : 'none' }}>
+          <ul className={styles.ul}>
+            <li className={styles.liItem}>
+              <div className={styles.top}>
+                <img src={require('../../../assets/img/phone/civi.png').default} alt='' />
+              </div>
+              <div className={styles.cotent}>Xiaomi Civi</div>
+              <div className={styles.bottom}>2599元起</div>
+            </li>
+            <li className={styles.liItem}>
+              <div className={styles.top}>
+                <img src={require('../../../assets/img/phone/phone1.webp').default} alt='' />
+              </div>
+              <div className={styles.cotent}>Xiaomi Mix4</div>
+              <div className={styles.bottom}>4999元起</div>
+            </li>
+            <li className={styles.liItem}>
+              <div className={styles.top}>
+                <img src={require('../../../assets/img/phone/civi.png').default} alt='' />
+              </div>
+              <div className={styles.cotent}>Xiaomi Civi</div>
+              <div className={styles.bottom}>2599元起</div>
+            </li>
+            <li className={styles.liItem}>
+              <div className={styles.top}>
+                <img src={require('../../../assets/img/phone/civi.png').default} alt='' />
+              </div>
+              <div className={styles.cotent}>Xiaomi Civi</div>
+              <div className={styles.bottom}>2599元起</div>
+            </li>
+            <li className={styles.liItem}>
+              <div className={styles.top}>
+                <img src={require('../../../assets/img/phone/civi.png').default} alt='' />
+              </div>
+              <div className={styles.cotent}>Xiaomi Civi</div>
+              <div className={styles.bottom}>2599元起</div>
+            </li>
+            <li className={styles.liItem}>
+              <div className={styles.top}>
+                <img src={require('../../../assets/img/phone/civi.png').default} alt='' />
+              </div>
+              <div className={styles.cotent}>Xiaomi Civi</div>
+              <div className={styles.bottom}>2599元起</div>
+            </li>
+          </ul>
+        </div>
+        <div>1234567897</div>
       </>
     );
   }
