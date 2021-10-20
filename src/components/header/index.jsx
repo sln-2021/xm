@@ -94,9 +94,9 @@ export default class Header extends React.Component {
         <div className={styles.rightNav}>
           <ul>
             {this.rightNav &&
-              this.rightNav.map((item) => {
+              this.rightNav.map((item, index) => {
                 return (
-                  <li className = {item.icon ? styles.last : ''}>
+                  <li className={item.icon ? styles.last : ''} key={index}>
                     {item.icon && <ShoppingCartOutlined className={styles.icon} />}
                     <a href={item.path}>{item.title}</a>
                     <span className={styles.sep}>|</span>

@@ -99,54 +99,54 @@ export default class TopNav extends React.Component {
               </Select>
             </div>
           </div>
+          <div className={styles.hoverContent} style={{ display: hoverFlag ? 'block' : 'none', zIndex: hoverFlag ? '10000' : '' }}>
+            <ul className={styles.ul}>
+              <li className={styles.liItem}>
+                <div className={styles.top}>
+                  <img src={require('../../../assets/img/phone/civi.png').default} alt='' />
+                </div>
+                <div className={styles.cotent}>Xiaomi Civi</div>
+                <div className={styles.bottom}>2599元起</div>
+              </li>
+              <li className={styles.liItem}>
+                <div className={styles.top}>
+                  <img src={require('../../../assets/img/phone/phone1.webp').default} alt='' />
+                </div>
+                <div className={styles.cotent}>Xiaomi Mix4</div>
+                <div className={styles.bottom}>4999元起</div>
+              </li>
+              <li className={styles.liItem}>
+                <div className={styles.top}>
+                  <img src={require('../../../assets/img/phone/civi.png').default} alt='' />
+                </div>
+                <div className={styles.cotent}>Xiaomi Civi</div>
+                <div className={styles.bottom}>2599元起</div>
+              </li>
+              <li className={styles.liItem}>
+                <div className={styles.top}>
+                  <img src={require('../../../assets/img/phone/civi.png').default} alt='' />
+                </div>
+                <div className={styles.cotent}>Xiaomi Civi</div>
+                <div className={styles.bottom}>2599元起</div>
+              </li>
+              <li className={styles.liItem}>
+                <div className={styles.top}>
+                  <img src={require('../../../assets/img/phone/civi.png').default} alt='' />
+                </div>
+                <div className={styles.cotent}>Xiaomi Civi</div>
+                <div className={styles.bottom}>2599元起</div>
+              </li>
+              <li className={styles.liItem}>
+                <div className={styles.top}>
+                  <img src={require('../../../assets/img/phone/civi.png').default} alt='' />
+                </div>
+                <div className={styles.cotent}>Xiaomi Civi</div>
+                <div className={styles.bottom}>2599元起</div>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div className={styles.hoverContent} style={{ display: hoverFlag ? 'block' : 'none' }}>
-          <ul className={styles.ul}>
-            <li className={styles.liItem}>
-              <div className={styles.top}>
-                <img src={require('../../../assets/img/phone/civi.png').default} alt='' />
-              </div>
-              <div className={styles.cotent}>Xiaomi Civi</div>
-              <div className={styles.bottom}>2599元起</div>
-            </li>
-            <li className={styles.liItem}>
-              <div className={styles.top}>
-                <img src={require('../../../assets/img/phone/phone1.webp').default} alt='' />
-              </div>
-              <div className={styles.cotent}>Xiaomi Mix4</div>
-              <div className={styles.bottom}>4999元起</div>
-            </li>
-            <li className={styles.liItem}>
-              <div className={styles.top}>
-                <img src={require('../../../assets/img/phone/civi.png').default} alt='' />
-              </div>
-              <div className={styles.cotent}>Xiaomi Civi</div>
-              <div className={styles.bottom}>2599元起</div>
-            </li>
-            <li className={styles.liItem}>
-              <div className={styles.top}>
-                <img src={require('../../../assets/img/phone/civi.png').default} alt='' />
-              </div>
-              <div className={styles.cotent}>Xiaomi Civi</div>
-              <div className={styles.bottom}>2599元起</div>
-            </li>
-            <li className={styles.liItem}>
-              <div className={styles.top}>
-                <img src={require('../../../assets/img/phone/civi.png').default} alt='' />
-              </div>
-              <div className={styles.cotent}>Xiaomi Civi</div>
-              <div className={styles.bottom}>2599元起</div>
-            </li>
-            <li className={styles.liItem}>
-              <div className={styles.top}>
-                <img src={require('../../../assets/img/phone/civi.png').default} alt='' />
-              </div>
-              <div className={styles.cotent}>Xiaomi Civi</div>
-              <div className={styles.bottom}>2599元起</div>
-            </li>
-          </ul>
-        </div>
-        <div>1234567897</div>
+        
       </>
     );
   }
